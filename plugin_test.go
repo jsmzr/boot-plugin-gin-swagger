@@ -10,5 +10,7 @@ func Test(t *testing.T) {
 	if p.Order() != defaultConfig["order"] {
 		t.Fatalf("swagger order default: %d", defaultConfig["order"])
 	}
-	p.Load()
+	if err := p.Load(); err != nil {
+		t.Fatal("swagger load should be success")
+	}
 }
